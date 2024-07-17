@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web Page</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <style>
+        .link-item {
+            overflow-wrap: break-word; /* Wrap long links */
+            word-wrap: break-word;     /* For older browsers */
+            word-break: break-word;    /* For even older browsers */
+        }
+    </style>
 </head>
 <body class="dark:bg-gray-800 dark:text-white">
     <div class="w-full max-w-sm mx-auto mt-6">
         <form>   
             <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">
-               
                 <input type="search" id="search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Add Topic" required />
                 <button type="submit" class="text-white absolute end-2.5 top-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ok</button>
             </div>
@@ -23,9 +29,9 @@
                 </h5>
                 <ul class="my-4 space-y-3">
                     <% topic.links.forEach(link => { %>
-                        <li>
-                            <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                                <span class="flex-1 ms-3 whitespace-nowrap"><%= link %></span>
+                        <li class="link-item">
+                            <a href="<%= link %>" target="_blank" class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                                <span class="flex-1 ms-3 whitespace-nowrap overflow-hidden text-ellipsis"><%= link %></span>
                             </a>
                         </li>
                     <% }); %>

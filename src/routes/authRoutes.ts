@@ -67,12 +67,16 @@ router.get('/google/callback',passport.authenticate('google',{session : false,fa
 
 const topics = [
     {
-        topic: "Health",
-        links: ["link1", "link2"]
+        topic: "Medical",
+        links: ["https://arxiv.org/abs/2407.00978", "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Diffusion+model+with+RAG&oq="]
     },
     {
-        topic: "RAG",
-        links: ["link1", "link2"]
+        topic: "Poilce Sketch",
+        links: ["https://www.vice.com/en/article/qjk745/ai-police-sketches", "https://www.google.com/search?q=+police+sketches+dataset&sca_esv=3a435d22dd23e419&rlz=1C1VDKB_enIN1005IN1005&sxsrf=ADLYWIKrXc2k4Q2q6hEmD2PtS8_sGVluRQ%3A1721216967883&ei=x6-XZpTONcSb4-EP4_eFsAg&ved=0ahUKEwjUzc7vgK6HAxXEzTgGHeN7AYYQ4dUDCA8&uact=5&oq=+police+sketches+dataset&gs_lp=Egxnd3Mtd2l6LXNlcnAiGCBwb2xpY2Ugc2tldGNoZXMgZGF0YXNldDIHECEYoAEYCjIHECEYoAEYCkifN1CIFVj0NHACeAGQAQCYAaIGoAGHGKoBCTAuNC43LjYtMbgBA8gBAPgBAZgCC6AC0BPCAgoQABiwAxjWBBhHwgIEECEYCsICChAAGIAEGEMYigXCAgYQABgHGB7CAgsQABiABBiRAhiKBcICBRAAGIAEwgIKEAAYgAQYFBiHAsICBhAAGBYYHsICCxAAGIAEGIYDGIoFwgIIEAAYgAQYogTCAgcQABiABBgNmAMAiAYBkAYHkgcJMi4yLjYuNi0xoAfuQg&sclient=gws-wiz-serp"]
+    },
+    {
+        topic: "Emergency",
+        links: ["https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9576386/"]
     }
 ];
 
