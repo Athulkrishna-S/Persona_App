@@ -84,7 +84,8 @@ const topics = [
 
 // Serve the HTML page
 router.get('/success', (req : Request , res : Response) => {
-    res.render('index', { topics });
+    const name : string = req.query.user as string;
+    res.render('index', { topics , name });
 });
 
 router.get('/',(req : Request , res : Response) => {
