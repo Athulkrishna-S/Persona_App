@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import express, { Application, Request, Response } from 'express';
 import localRoutes from './routes/authRoutes.js';
 import googleRoutes from './routes/googleRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 const app: Application = express();
 const PORT: string | undefined = process.env.PORT;
 
@@ -29,6 +30,7 @@ app.use((req: Request, res: Response, next: any) => {
 
 app.use('/auth', localRoutes);
 app.use('/auth-google',googleRoutes);
+app.use('/usr',userRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

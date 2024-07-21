@@ -1,6 +1,7 @@
 import express , {Application , Request , Response , Router} from 'express';
 import { getTopics  } from '../models/usermodel.js';
 import { signin } from '../models/auth.js';
+import { ObjectId } from 'mongodb';
 const router : Router = express.Router();
 
 router.get('/',(req : Request , res : Response) => {
@@ -47,16 +48,21 @@ router.post('/', async (req : Request , res : Response)=>{
     
 });
 // Serve the HTML page
-router.get('/success', async (req : Request , res : Response) => {
-    const name : string = req.query.username as string;
-    const userid : string = req.query.userid as string;
-    const data : Array<{ topic: string, links: string[] }> = await getTopics(userid);
-    
-    const topics: Array<{ topic: string, links: string[] }> = [];
-    data.forEach((element: { topic: string, links: string[] }) => {
-        topics.push({ topic: element.topic, links: element.links });
-    });
-    res.render('index', { topics , name });
+interface TopicData {
+    _id: ObjectId,
+    userid: string,
+    topic: string,
+    links: string[],
+    notes: string
+}
+
+router.get('/success', async (req: Request, res: Response) => {
+    const name: string = req.query.username as string;
+    const userid: string = req.query.userid as string;
+    const data: Array<TopicData> = await getTopics(userid);
+   // console.log("data in routes ", data);
+    const topics: Array<{ topic: string, links: string[] }> = data.map(({ topic, links }) => ({ topic, links }));
+    res.render('index', { topics, name });
 });
 
 
@@ -80,17 +86,5 @@ router.get('/success/google', async (req : Request , res : Response) => {
 });
 
 
-router.get('/notes',async (req : Request , res : Response) => {
-    var topics = [
-        {
-            topic: "Medical",
-            note: "Hellow"
-        },
-        {
-            topic: "Medical",
-            note: "Hescvcccccccccccccccccccccccccccccccccccccccllow"     
-        }
-    ];
-    res.render('notes', { topics });
-});
+
 export default router;
