@@ -138,3 +138,6 @@ dist
 * text=auto
 temp.js
 .deployment
+
+# Ignore the entire temp folder
+temp/
