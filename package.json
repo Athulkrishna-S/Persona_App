@@ -5,7 +5,7 @@
   "main": "script.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Running test \" ",
+    "test": "echo \"Running test \"",
     "start": "node dist/index.js"
   },
   "keywords": [],
