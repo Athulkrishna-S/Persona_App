@@ -59,10 +59,11 @@ interface TopicData {
 router.get('/success', async (req: Request, res: Response) => {
     const name: string = req.query.username as string;
     const userid: string = req.query.userid as string;
+    const method: string = req.query.method as string;
     const data: Array<TopicData> = await getTopics(userid);
    // console.log("data in routes ", data);
     const topics: Array<{ topic: string, links: string[] }> = data.map(({ topic, links }) => ({ topic, links }));
-    res.render('index', { topics, name });
+    res.render('index', { topics, name , method , userid });
 });
 
 

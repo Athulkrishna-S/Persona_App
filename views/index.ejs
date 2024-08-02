@@ -80,6 +80,17 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const method = '<%= method %>'; // Get method from the EJS variable
+        const name = '<%= name %>';
+        const userid = '<%= userid %>';
+        
+        if (method === 'google') {
+            localStorage.setItem('username', name);
+            localStorage.setItem('userid', userid);
+        }
+    });
+
     window.addEventListener('pageshow', (event) => {
         const userId = localStorage.getItem('userid');
         if (userId) {
@@ -148,6 +159,7 @@
             }
         });
     });
+    
 </script>
 </body>
 </html>
