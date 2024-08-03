@@ -2,7 +2,7 @@
   "name": "personalapp",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Running test \"",
